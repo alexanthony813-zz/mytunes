@@ -68,6 +68,7 @@ describe('SongQueue', function() {
     it('removes the song', function() {
       removeSpy = sinon.spy(SongQueue.prototype, 'remove');
       var songQueue = new SongQueue(songData1);
+      //when we invoke dequeue on song model, we invoke remove on songqueue
       songQueue.at(0).dequeue();
       expect(removeSpy).to.have.been.called;
       SongQueue.prototype.remove.restore();
